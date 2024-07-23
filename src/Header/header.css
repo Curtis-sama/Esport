@@ -1,0 +1,9 @@
+.Header {
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 1.5px 0 0 #cecece;
+  font-family: Ppformulacondensed, sans-serif;
+}
+
+
