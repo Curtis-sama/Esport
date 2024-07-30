@@ -1,21 +1,16 @@
-const Content = ({ games }) => {
-	const handleClick = (name) => {
-		console.log(name);
-	};
+import Header from '../../Header';
+import Content from '..';
+import { useLoaderData } from 'react-router-dom';
 
-	const listNameGames = games.map((game, index) => {
-		const name = game.name
-		return <div key={index} onClick={() => handleClick(name)}>{name} </div>
-	})
+const Home = () => {
+  const valoData = useLoaderData()
 
-
-
-	return (
-		<div className="Content" >
-			{listNameGames}
-
-		</div>
-	)
+  return (
+    <>
+      <Header />
+      {valoData && <Content valoData={valoData} />}
+    </>
+  )
 }
 
-export default Content
+export default Home;

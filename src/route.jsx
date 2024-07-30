@@ -1,6 +1,11 @@
 
-import { createBrowserRouter } from "react-router-dom"
-import App from "./App"
+import { createBrowserRouter, NavLink, Outlet } from "react-router-dom"
+import Home from "./Content/home"
+import Esport from "./Content/esport"
+import Wiki from "./Content/wiki"
+import Maps from "./Content/wiki/maps"
+import Agents from "./Content/wiki/agents"
+import Weapons from "./Content/wiki/weapons"
 
 const options = {
   method: 'GET',
@@ -10,24 +15,46 @@ const options = {
   }
 }
 
-const getGames = async () =>  {
-  const response = await fetch('https://api.pandascore.co/videogames?page=1&per_page=50', options)
-  const videoGames = await response.json();
-  return videoGames 
+const getGames = async () => {
+  const response = await fetch('https://api.pandascore.co/videogames/valorant', options)
+  const info = await response.json();
+  return info
 }
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App/>,
+    element: <Home />,
     loader: () => {
       return getGames()
     },
   },
   {
-    path:'valorant',
-   
-  }
+    path: '/esport',
+    element: <Esport />,
+    loader: () => {
+      return getGames()
+    },
+  },
+  {
+    path: '/wiki',
+    element: <Wiki />,
+    children: [
+      {
+        path: "maps",
+        element: <Maps />,
+      },
+      {
+        path: "Agents",
+        element: <Agents />,
+      },
+
+      {
+        path: "Weapons",
+        element: <Weapons />,
+      }
+    ]
+  },
 ])
 
 export default router

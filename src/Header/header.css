@@ -1,9 +1,37 @@
 .Header {
-  color: rgb(0, 0, 0);
+  width: 100%;
+  color: rgb(255, 255, 255);
   display: flex;
-  justify-content: center;
+  align-items: center; 
   box-shadow: 0 1.5px 0 0 #cecece;
-  font-family: Ppformulacondensed, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 10;
+  background-color: #FAD961;
+  background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
+  padding: 10px; 
 }
+
+.left {
+  display: flex;
+  align-items: center;
+  margin-right: auto; 
+}
+
+
+
+.middle {
+  position: absolute;
+  left: 45%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.crown {
+  color: #FFD700;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  margin-left: 10px; 
+}
+
 
 
