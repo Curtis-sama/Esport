@@ -11,6 +11,12 @@
   padding: 10px; 
 }
 
+
+.title{
+  text-decoration: none;
+  color: white;
+}
+
 .left {
   display: flex;
   align-items: center;

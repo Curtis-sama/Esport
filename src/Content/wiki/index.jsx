@@ -1,5 +1,5 @@
 import Header from "../../Header";
-import { Outlet, useLoaderData } from "react-router-dom"
+import { useLoaderData } from "react-router-dom"
 import { Link } from "react-router-dom";
 
 
@@ -25,9 +25,6 @@ const Wiki = () => {
           <Link to="/wiki/weapons" className="links">
             {"weapons"}
           </Link>
-        </div>
-        <div className="outlet">
-          <Outlet />
         </div>
       </div>
 

@@ -1,12 +1,15 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCrown } from '@fortawesome/free-solid-svg-icons';
-
+import { Link } from 'react-router-dom';
+const handleclick = () => {
+    
+}
 const Header = () => {
     return (
         <div className="Header">
             <div className="left">
-                <div className="a"><h1>kingEsport</h1></div>
+                <Link to="/" className="title"><h1>kingEsport</h1></Link>
                 <div className='crown'><FontAwesomeIcon icon={faCrown} /></div>
             </div>
             <div className="middle">

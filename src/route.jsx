@@ -37,24 +37,21 @@ const router = createBrowserRouter([
     },
   },
   {
-    path: '/wiki',
+    path: '/wiki/home',
     element: <Wiki />,
-    children: [
-      {
-        path: "maps",
-        element: <Maps />,
-      },
-      {
-        path: "Agents",
-        element: <Agents />,
-      },
-
-      {
-        path: "Weapons",
-        element: <Weapons />,
-      }
-    ]
   },
+  {
+    path: "/wiki/maps",
+    element: <Maps />,
+  },
+  {
+    path: "/wiki/Agents",
+    element: <Agents />,
+  },
+  {
+    path: "/wiki/Weapons",
+    element: <Weapons />,
+  }
 ])
 
 export default router

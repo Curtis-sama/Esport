@@ -16,7 +16,7 @@ const Content = ({ }) => {
 			{/* <button className="btn" id="prev">&#10096;</button>
 			<button className="btn" id="next">&#10097;</button> */}
 			{/* <div className="blocHorizontale"> */}
-				<Link to="/wiki" className="link">
+				<Link to="/wiki/home" className="link">
         <div className="wiki">{"wiki"}</div>
 					
 				</Link>
