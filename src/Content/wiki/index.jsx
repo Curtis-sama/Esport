@@ -4,13 +4,8 @@ import { Link } from "react-router-dom";
 
 
 const Wiki = () => {
-  const valoAbilities = useLoaderData()
-  // console.log(valoAbilities);
+  
 
-  // const valo = valoAbilities.map((abilitie, index) => {
-  //   const name = abilitie.name
-  //   return <div key={index}>{name} </div>
-  // })
   return (
     <div className="page">
       <Header />

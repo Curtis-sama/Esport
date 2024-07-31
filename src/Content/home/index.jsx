@@ -5,6 +5,7 @@ import { useLoaderData } from 'react-router-dom';
 const Home = () => {
   const valoData = useLoaderData()
 
+
   return (
     <>
       <Header />

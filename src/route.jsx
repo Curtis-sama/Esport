@@ -21,6 +21,12 @@ const getGames = async () => {
   return info
 }
 
+  const getMaps = async () => {
+    const response = await fetch('https://api.pandascore.co/valorant/maps', options)
+    const info = await response.json();
+    return info
+}
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -43,6 +49,9 @@ const router = createBrowserRouter([
   {
     path: "/wiki/maps",
     element: <Maps />,
+    loader: () => {
+      return getMaps()
+    }
   },
   {
     path: "/wiki/Agents",

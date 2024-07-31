@@ -1,0 +1,21 @@
+.infos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+img#i{
+  width: 25vw;
+  height: 25vh;
+  display: flex;
+  border: 4px groove #f8bf74;
+  margin: 4px;
+}
+
+.name{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  padding-top: 20px;
+}
+

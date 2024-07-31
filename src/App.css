@@ -1,6 +1,7 @@
 @import "./Header/header.css";
 @import "./Content/index.css";
 @import "Content/wiki/index.css";
+@import "./Content/wiki/maps/maps.css";
 
 
 body {
