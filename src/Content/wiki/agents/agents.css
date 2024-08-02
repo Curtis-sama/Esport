@@ -1,0 +1,54 @@
+
+
+
+
+.card{
+  height: 150px;
+  width: 150px;
+  display: flex;
+  border: 4px groove #f8bf74;
+  border-radius: 10%;
+  margin: 20px;
+  object-fit: contain;
+  
+}
+
+
+
+.name-agent{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  padding-top: 20px;
+}
+
+
+.cardhover{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  }
+
+
+.info-name-role{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 7px;
+  font-family: Marker Felt, fantasy;
+}
+
+
+
+.imgfeed{
+  flex: 1;
+  height: 70px;
+  
+}
+
+
+.info-name{
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+}

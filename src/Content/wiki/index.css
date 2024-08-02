@@ -6,41 +6,31 @@
 
 }
 
-
 .links {
   color: black;
   text-decoration: none;
-  margin: px;
   border: 1px solid black;
   border-radius: 5% 20%;
   box-shadow: 10px 5px 5px black;
   padding: 2%;
 }
 
-
 .links:hover{
-  background-color: rgb(185, 185, 185);
+  background-color: rgb(233, 233, 233);
+  transition:0.5s;
 }
 
-
-.contenair{
- display: flex;
- overflow-x: hidden;
- overflow-y: hidden
+.container{
+  flex: 1;
+  display: flex;
+  max-height: 90%;
 }
 
 .nav-vertical{
-display: flex;
-flex-direction: column;
-padding: 10%;
-border: 1px solid rgb(214, 214, 214);
-height: 100%;
-
-}
-
-.apinfo{
-  padding: 2%;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(214, 214, 214);
+  height: 100%;
 }
 
 .nav-link{
@@ -48,9 +38,27 @@ height: 100%;
   text-decoration: none;
   color: black;
   width: 20vh
-
 }
 
 .nav-link:hover{
   background-color: rgb(185, 185, 185);
+}
+
+.infos {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 9px;
+  max-height: 100%;
+  overflow: scroll;
+  
+}
+
+
+.img{
+  object-fit: fill;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
 }

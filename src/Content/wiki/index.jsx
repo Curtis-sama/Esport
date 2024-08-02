@@ -9,20 +9,17 @@ const Wiki = () => {
   return (
     <div className="page">
       <Header />
-      <div className="aaa">
         <div className="contentLinks">
-          <Link to="/wiki/maps" className="links">
-            {"maps"}
-          </Link>
           <Link to="/wiki/agents" className="links">
             {"agents"}
           </Link>
+          {/* <Link to="/wiki/maps" className="links">
+            {"maps"}
+          </Link>
           <Link to="/wiki/weapons" className="links">
             {"weapons"}
-          </Link>
+          </Link> */}
         </div>
-      </div>
-
     </div>
   )
 }

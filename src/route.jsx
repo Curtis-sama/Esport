@@ -6,6 +6,7 @@ import Wiki from "./Content/wiki"
 import Maps from "./Content/wiki/maps"
 import Agents from "./Content/wiki/agents"
 import Weapons from "./Content/wiki/weapons"
+import Details from "./Content/wiki/agents/details"
 
 const options = {
   method: 'GET',
@@ -25,6 +26,18 @@ const getGames = async () => {
     const response = await fetch('https://api.pandascore.co/valorant/maps', options)
     const info = await response.json();
     return info
+}
+
+const getAgents = async () => {
+  const response = await fetch('https://valorant-api.com/v1/agents')
+  const { data } = await response.json();
+  return data
+}
+
+const getWeapons = async () => {
+  const response = await fetch('https://api.pandascore.co/valorant/weapons', options)
+  const info = await response.json();
+  return info
 }
 
 const router = createBrowserRouter([
@@ -54,12 +67,25 @@ const router = createBrowserRouter([
     }
   },
   {
-    path: "/wiki/Agents",
+    path: "/wiki/agents",
     element: <Agents />,
+    loader: () => {
+      return getAgents()
+    }
   },
   {
-    path: "/wiki/Weapons",
+    path: "/wiki/weapons",
     element: <Weapons />,
+    loader:() => {
+      return getWeapons()
+    }
+  },
+  {
+    path: "/wiki/agents/:agents",
+    element: <Details/>,
+    loader: () => {
+      return getAgents()
+    }
   }
 ])
 

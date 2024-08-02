@@ -1,16 +1,4 @@
-.infos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
 
-img#i{
-  width: 25vw;
-  height: 25vh;
-  display: flex;
-  border: 4px groove #f8bf74;
-  margin: 4px;
-}
 
 .name{
   display: flex;
@@ -19,3 +7,10 @@ img#i{
   padding-top: 20px;
 }
 
+.plan{
+  height: 170px;
+  width: 300px;
+  display: flex;
+  border: 4px groove #f8bf74;
+  margin: 20px;
+}
