@@ -1,0 +1,101 @@
+.info{
+  flex: 1;
+  display: flex;
+}
+
+.details-agent{
+  flex: 1;
+  padding: 15px;
+  margin: 15px;
+}
+
+
+.imgagent{
+  flex: 1;
+  display: flex;
+ 
+}
+
+.image{
+  flex: 1;
+  height: 600px;
+  width: 300px;
+  display: flex;
+  margin: 20px;
+  object-fit: contain;
+  color: black;
+  text-decoration: none;
+  justify-content: flex-end;
+}
+
+
+.agent-name{
+  font-size: 3.5rem;
+  padding-bottom: 15px;
+}
+
+.details-agent-description{
+  display: flex;
+  padding-bottom: 15px;
+}
+
+.abilities{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+.abilities-img{
+  background-color: #f8bf74;
+  height: 40px;
+  width: 40px;
+  display: flex;
+}
+
+.abilities1{
+
+  display: flex;
+  align-items: center;
+  margin:10px ;
+ 
+}
+
+.abilities2{
+
+  display: flex;
+  align-items: center;
+  margin:10px ;
+}
+
+.abilities3{
+
+  display: flex;
+  align-items: center;
+  margin:10px ;
+}
+
+.abilities4{
+  
+  display: flex;
+  align-items: center;
+  margin:10px ;
+}
+
+.description-abilities{
+  font-size: 0.7rem;
+}
+
+.name-img-abilities{
+  flex: 1;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.description-abilities{
+  flex: 2.5;
+  display: flex;
+  margin: 5px;
+}

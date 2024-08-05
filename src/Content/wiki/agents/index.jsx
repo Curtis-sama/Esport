@@ -1,62 +1,62 @@
-import Header from "../../../Header"
-import Nav from "../nav"
-import { useLoaderData } from "react-router-dom"
-import { useState } from "react"
-import { Link } from "react-router-dom"
-
+import Header from "../../../Header";
+import Nav from "../nav";
+import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const CardAgents = ({ agent }) => {
-  const [change, setChange] = useState(true)
-  const name = agent.displayName
-  const { displayIcon } = agent
-  const role = agent.role.displayName
-  const { killfeedPortrait } = agent
+  const [change, setChange] = useState(true);
+  const name = agent.displayName;
+  const { displayIcon } = agent;
+  const role = agent.role.displayName;
+  const { killfeedPortrait } = agent;
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate({ pathname: `${agent.uuid}` });
+  };
 
   return (
-    <div className="card"
+    <div
+      className="card"
+      onClick={handleClick}
       onMouseEnter={() => setChange(false)}
-      onMouseLeave={() => setChange(true)}>
-        {
-        change
-        ? 
-          <img className="img" src={displayIcon} />
-        : 
-          <div className="cardhover">
-            <div className="info-name-role">
-              <div className="info-name">{name}</div> <div>{role}</div>
-            </div>
-            <img className="imgfeed" src={killfeedPortrait} />
+      onMouseLeave={() => setChange(true)}
+    >
+      {change ? (
+        <img className="img" src={displayIcon} alt={`${name} icon`} />
+      ) : (
+        <div className="cardhover">
+          <div className="info-name-role">
+            <div className="info-name">{name}</div>
+            <div>{role}</div>
           </div>
-      }
-    
+          <img className="imgfeed" src={killfeedPortrait} alt={`${name} portrait`} />
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
 const Agents = () => {
-  const agents = useLoaderData()
-  console.log(agents);
+  const agents = useLoaderData();
 
   return (
     <>
       <Header />
       <div className="container">
-        <div className="vertical-nav">
-          <Nav />
-        </div>
+        <Nav />
         <div className="infos">
           {agents
-            .filter(({ fullPortrait }) => fullPortrait)
+            .filter(({ fullPortrait }) => fullPortrait) // Filtre les erreurs dans l'API 
             .map((agent, index) => {
-              return <CardAgents key={index} agent={agent} />
-            })
-          }
+              return <CardAgents key={index} agent={agent} />;
+            })}
         </div>
       </div>
     </>
-  )
+  );
+};
 
-}
-
-
-export default Agents
+export default Agents;

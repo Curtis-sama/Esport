@@ -4,7 +4,7 @@
 @import "./Content/wiki/maps/maps.css";
 @import "./Content/wiki/agents/agents.css";
 @import "./Content/wiki/weapons/weapons.css";
-
+@import "./Content/wiki/agents/details.css";
 
 body {
   height: 100vh;

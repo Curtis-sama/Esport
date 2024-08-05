@@ -14,7 +14,7 @@ const Maps = () => {
           {name}
         </div>
         <div  className="plan" >
-      {<img className="img"src={image} />}
+      <img className="img"src={image} />
     </div>
     </div>
     )

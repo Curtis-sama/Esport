@@ -28,10 +28,17 @@ const getGames = async () => {
     return info
 }
 
-const getAgents = async () => {
-  const response = await fetch('https://valorant-api.com/v1/agents')
-  const { data } = await response.json();
-  return data
+const getAgents = async (params) => {
+  if (params) {
+    const { uuid } = params
+    const response = await fetch(`https://valorant-api.com/v1/agents/${uuid}`)
+    const { data } = await response.json();
+    return data
+  } else {
+    const response = await fetch('https://valorant-api.com/v1/agents')
+    const { data } = await response.json();
+    return data
+  }
 }
 
 const getWeapons = async () => {
@@ -81,10 +88,10 @@ const router = createBrowserRouter([
     }
   },
   {
-    path: "/wiki/agents/:agents",
+    path: "/wiki/agents/:uuid",
     element: <Details/>,
-    loader: () => {
-      return getAgents()
+    loader: ({ params }) => {
+      return getAgents(params)
     }
   }
 ])
