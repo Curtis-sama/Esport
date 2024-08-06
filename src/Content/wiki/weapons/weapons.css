@@ -3,6 +3,8 @@
   width: 330px;
   display: flex;
   border: 4px groove #f8bf74;
+  border-radius: 7%;
   margin: 20px;
   padding: 20px;
+  overflow: auto;
 }

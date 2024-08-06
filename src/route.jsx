@@ -7,25 +7,19 @@ import Maps from "./Content/wiki/maps"
 import Agents from "./Content/wiki/agents"
 import Weapons from "./Content/wiki/weapons"
 import Details from "./Content/wiki/agents/details"
+import DetailsWeapons from "./Content/wiki/weapons/detailsweapons"
 
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    authorization: 'Bearer ziIV-g73hk2Vp_RDZFmJcQ4apueO5FZH53I_ZHO09pPuz1Qm5wg'
-  }
-}
 
 const getGames = async () => {
-  const response = await fetch('https://api.pandascore.co/videogames/valorant', options)
+  const response = await fetch('https://api.pandascore.co/videogames/valorant')
   const info = await response.json();
   return info
 }
 
   const getMaps = async () => {
-    const response = await fetch('https://api.pandascore.co/valorant/maps', options)
-    const info = await response.json();
-    return info
+    const response = await fetch('https://valorant-api.com/v1/maps')
+    const { data } = await response.json();
+    return data
 }
 
 const getAgents = async (params) => {
@@ -41,11 +35,20 @@ const getAgents = async (params) => {
   }
 }
 
-const getWeapons = async () => {
-  const response = await fetch('https://api.pandascore.co/valorant/weapons', options)
-  const info = await response.json();
-  return info
+const getWeapons = async (params) => {
+  if (params) {
+    const { uuid } = params
+    const response = await fetch(`https://valorant-api.com/v1/weapons/${uuid}`)
+    const {data} = await response.json();
+    return data
+  } else { 
+    const response = await fetch('https://valorant-api.com/v1/weapons/')
+    const { data } = await response.json();
+    return data
+  }
 }
+  
+
 
 const router = createBrowserRouter([
   {
@@ -92,6 +95,13 @@ const router = createBrowserRouter([
     element: <Details/>,
     loader: ({ params }) => {
       return getAgents(params)
+    }
+  },
+  {
+    path: "/wiki/weapons/:uuid",
+    element: <DetailsWeapons/>,
+    loader: ({ params }) => {
+      return getWeapons(params)
     }
   }
 ])

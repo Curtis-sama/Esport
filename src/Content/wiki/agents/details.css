@@ -1,6 +1,7 @@
-.info{
+.details{
   flex: 1;
   display: flex;
+  flex-direction: row;
 }
 
 .details-agent{
@@ -10,26 +11,37 @@
 }
 
 
-.imgagent{
+.img-agent{
   flex: 1;
   display: flex;
- 
+  align-self: center;
+  position: relative;
 }
 
 .image{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 4;
+}
+
+.abilities-background{
   flex: 1;
   height: 600px;
   width: 300px;
   display: flex;
   margin: 20px;
   object-fit: contain;
-  color: black;
-  text-decoration: none;
-  justify-content: flex-end;
+  position: relative ;
+  z-index: 2;
+  background-color: rgb(192, 192, 192);
 }
 
-
 .agent-name{
+
   font-size: 3.5rem;
   padding-bottom: 15px;
 }
@@ -43,19 +55,17 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-
 }
 
 
 .abilities-img{
-  background-color: #f8bf74;
+  background-color: rgb(192, 192, 192);
   height: 40px;
   width: 40px;
   display: flex;
 }
 
 .abilities1{
-
   display: flex;
   align-items: center;
   margin:10px ;
@@ -63,21 +73,18 @@
 }
 
 .abilities2{
-
   display: flex;
   align-items: center;
   margin:10px ;
 }
 
 .abilities3{
-
   display: flex;
   align-items: center;
   margin:10px ;
 }
 
 .abilities4{
-  
   display: flex;
   align-items: center;
   margin:10px ;
@@ -99,3 +106,15 @@
   display: flex;
   margin: 5px;
 }
+
+.details-description-abilities{
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+
+.content-abilities{
+  display: flex;
+}
+

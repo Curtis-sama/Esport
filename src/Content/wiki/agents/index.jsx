@@ -10,7 +10,6 @@ const CardAgents = ({ agent }) => {
   const { displayIcon } = agent;
   const role = agent.role.displayName;
   const { killfeedPortrait } = agent;
-
   const navigate = useNavigate();
 
   const handleClick = () => {

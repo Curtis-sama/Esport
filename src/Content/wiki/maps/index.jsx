@@ -1,40 +1,63 @@
 import Header from "../../../Header"
 import Nav from "../nav"
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const Maps = () => {
-  const valoMap = useLoaderData()
+const InfoMaps = ({ map }) => {
+  const [maps, setmaps] = useState(true);
+  const name = map.displayName;
+  const { splash } = map;
+  const { displayIcon } = map;
+  const {listViewIcon} = map;
+  const {listViewIconTall} = map;
+  const navigate = useNavigate();
 
-  const plan = valoMap.map((map, index) => {
-    const name = map.name
-    const image = map.image_url
-    return (
-      <div key={index}>
-        <div className="name">
-          {name}
-        </div>
-        <div  className="plan" >
-      <img className="img"src={image} />
-    </div>
-    </div>
-    )
-  })
-
+  const handleClick = () => {
+    navigate({ pathname: `${map.uuid}` });
+  };
 
   return (
-    <>
+    <div
+      className="plan"
+      onClick={handleClick}
+      onMouseEnter={() => setmaps(false)}
+      onMouseLeave={() => setmaps(true)}
+    >
+      {maps ? (
+        <img className="img" src={splash} alt={`${name} icon`} />
+      ) : (
+        <div className="cardhover">
+          <div className="info-name-role">
+            <div className="info-name">{name}</div>
+          </div>
+          <img className="imgfeed" src={listViewIcon} alt={`${name} portrait`} />
+        </div>
+      )}
+    </div>
+  );
+};
+
+
+const Maps = () => {
+  const mapp = useLoaderData()
+  console.log(mapp);
+ 
+  return(
+  <>
       <Header />
       <div className="container">
-        <div className="vertical-nav">
-          <Nav />
-        </div>
+        <Nav />
         <div className="infos">
-          {plan}
+          {mapp
+          .filter(({ displayIcon }) => displayIcon) // Filtre les erreurs dans l'API 
+          .map((map, index) => {
+              return <InfoMaps key={index} map={map} />;
+            })}
         </div>
       </div>
     </>
-  )
-}
-
+  );
+};
 
 export default Maps

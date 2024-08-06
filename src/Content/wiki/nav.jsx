@@ -7,12 +7,12 @@ const Nav = () => {
       <Link to="/wiki/agents" className="nav-link">
         {"agents"}
       </Link>
-      {/* <Link to="/wiki/maps" className="nav-link">
+      <Link to="/wiki/maps" className="nav-link">
         {"maps"}
       </Link>
       <Link to="/wiki/weapons" className="nav-link">
         {"weapons"}
-      </Link> */}
+      </Link>
     </div>
 
   )

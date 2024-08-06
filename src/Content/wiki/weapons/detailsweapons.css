@@ -1,0 +1,42 @@
+.details-page{
+  flex: 1;
+  display: flex;
+}
+
+.name-img-skins{
+  flex: 1;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.details-skin{
+  flex: 1;
+  padding: 15px;
+  margin: 15px;
+}
+
+
+.weapons-name {
+  font-size: 3.5rem;
+  padding-bottom: 15px;
+}
+
+.weapon-img{
+    flex: 1;
+    display: flex;
+    align-self: center;
+    align-self: flex-start;
+    margin-top: 150px;
+    margin-right: 25px;
+    position: fixed;
+    right: 0;
+    border: 4px groove #f8bf74;
+    border-radius: 7%;
+  }
+
+  .name-img-skins{
+    width: 400px;
+  }
+
+

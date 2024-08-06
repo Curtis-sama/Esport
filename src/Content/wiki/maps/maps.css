@@ -12,5 +12,10 @@
   width: 300px;
   display: flex;
   border: 4px groove #f8bf74;
+  border-radius: 7%;
   margin: 20px;
+  object-fit: contain;
+  overflow: auto;
+  
 }
+
