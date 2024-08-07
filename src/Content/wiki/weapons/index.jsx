@@ -23,7 +23,7 @@ const InfoWeapons = ({ weapon }) => {
       onMouseLeave={() => setweapons(true)}
     >
       {weapons ? (
-        <img className="img" src={displayIcon} alt={`${name} icon`} />
+        <img className="img-weapons" src={displayIcon} alt={`${name} icon`} />
       ) : (
         <div className="cardhover">
           <div className="info-name-role">

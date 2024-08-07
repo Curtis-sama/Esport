@@ -13,14 +13,14 @@ const InfoMaps = ({ map }) => {
   const {listViewIconTall} = map;
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate({ pathname: `${map.uuid}` });
-  };
+  // const handleClick = () => {
+  //   navigate({ pathname: `${map.uuid}` });
+  // };
 
   return (
     <div
       className="plan"
-      onClick={handleClick}
+      // onClick={handleClick}
       onMouseEnter={() => setmaps(false)}
       onMouseLeave={() => setmaps(true)}
     >

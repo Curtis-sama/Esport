@@ -8,3 +8,10 @@
   padding: 20px;
   overflow: auto;
 }
+
+
+.img-weapons{
+  object-fit: contain;
+  overflow: auto;
+  
+}

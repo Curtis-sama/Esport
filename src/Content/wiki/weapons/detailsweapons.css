@@ -1,6 +1,7 @@
 .details-page{
   flex: 1;
   display: flex;
+  
 }
 
 .name-img-skins{
@@ -8,12 +9,23 @@
   width: 400px;
   display: flex;
   flex-direction: column;
+  border: 4px groove #f8bf74;
+  border-radius: 7px;
 }
 
 .details-skin{
   flex: 1;
   padding: 15px;
   margin: 15px;
+  overflow: scroll;
+  
+}
+
+.skin {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  
 }
 
 
@@ -22,17 +34,14 @@
   padding-bottom: 15px;
 }
 
-.weapon-img{
-    flex: 1;
-    display: flex;
-    align-self: center;
-    align-self: flex-start;
-    margin-top: 150px;
-    margin-right: 25px;
+.info-weapons{
     position: fixed;
-    right: 0;
+    /* right: 0; */
+    top: 40%;
+    left: 60%;
     border: 4px groove #f8bf74;
-    border-radius: 7%;
+    border-radius: 7px;
+    
   }
 
   .name-img-skins{
@@ -40,3 +49,17 @@
   }
 
 
+.damage-stat{
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+  padding-bottom: 20px;
+}
+
+.distance-damage{
+  color: red;
+}
+
+.image-weapon{
+  width: 400px;
+}

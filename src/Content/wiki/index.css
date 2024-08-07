@@ -26,11 +26,6 @@
   max-height: 90%;
 }
 
-@media screen and (min-width: 200rem) {
-  .container {
-    margin: 1em 2em;
-  }
-}
 
 .nav-vertical{
   display: flex;
