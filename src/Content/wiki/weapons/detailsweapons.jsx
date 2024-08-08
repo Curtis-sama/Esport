@@ -2,46 +2,34 @@ import { useLoaderData } from "react-router-dom"
 import Header from "../../../Header";
 import Nav from "../nav";
 
-
-
-
-
-
 const DetailsWeapons = () => {
 
   const weapons = useLoaderData()
-  console.log(weapons);
-  
 
-  const WeaponsDamage = weapons.weaponStats.damageRanges
+  const WeaponsDamage = weapons.weaponStats.damageRanges // TODO: nouveau composant
     .map((damage, index) => {
-      console.log(damage);
       const damageStart = damage.rangeStartMeters
       const damageEnd = damage.rangeEndMeters
-      const {bodyDamage} = damage
-      const {headDamage} = damage
-      const {legDamage} = damage
+      const { bodyDamage, headDamage, legDamage } = damage
+      
 
       return (
         <div className="damage-stat" key={index}>
           <div className="distance-damage">distance: {damageStart}/{damageEnd}m</div>
-          <div>dégât tête: {headDamage}</div>
-          <div> dégât corps: {bodyDamage}</div>
-          <div>dégât jambes: {legDamage}</div>
-         
+          <div>dégâts tête: {headDamage}</div>
+          <div> dégâts corps: {bodyDamage}</div>
+          <div>dégâts jambes: {legDamage}</div>
         </div>
       )
     })
 
-  const WeaponSkin = 
-  weapons.skins
-    .filter(({ displayIcon }) => displayIcon) // Filtre les erreurs dans l'API 
+  const weaponSkin = weapons.skins // TODO: nouveau composant
+    .filter(({ contentTierUuid, displayIcon }) => contentTierUuid && displayIcon) // Filtre les erreurs dans l'API 
     .map((skin, index) => {
       const {
         displayName,
         displayIcon
       } = skin
-
 
       return (
         <div key={index}>
@@ -49,7 +37,6 @@ const DetailsWeapons = () => {
             {displayName}
             <img className="skins-img" src={displayIcon} />
           </div>
-
         </div>
       )
     })
@@ -65,7 +52,7 @@ const DetailsWeapons = () => {
               {weapons.displayName}
             </div>
             <div className="skin">
-              {WeaponSkin}
+              {weaponSkin}
             </div>
           </div>
         </div>

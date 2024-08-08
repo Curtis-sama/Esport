@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 const InfoWeapons = ({ weapon }) => {
-  const [weapons, setweapons] = useState(true);
   const name = weapon.displayName;
   const { displayIcon } = weapon;
   const navigate = useNavigate();
@@ -19,37 +18,28 @@ const InfoWeapons = ({ weapon }) => {
     <div
       className="arms"
       onClick={handleClick}
-      onMouseEnter={() => setweapons(false)}
-      onMouseLeave={() => setweapons(true)}
     >
-      {weapons ? (
-        <img className="img-weapons" src={displayIcon} alt={`${name} icon`} />
-      ) : (
-        <div className="cardhover">
-          <div className="info-name-role">
-            <div className="info-name">{name}</div>
-          </div>
-          <img className="imgfeed" src={''} alt={`${name} portrait`} />
-        </div>
-      )}
+      <div>
+        {name}
+      </div>
+      <img className="img-weapons" src={displayIcon} alt={`${name} icon`} />
     </div>
   );
 };
 
 
-const Weapons = () =>{
-const weapons = useLoaderData()
-console.log(weapons);
+const Weapons = () => {
+  const weapons = useLoaderData()
+  console.log(weapons);
 
-return(
-  <>
+  return (
+    <>
       <Header />
       <div className="container">
         <Nav />
         <div className="infos">
           {weapons
-          
-          .map((weapon, index) => {
+            .map((weapon, index) => {
               return <InfoWeapons key={index} weapon={weapon} />;
             })}
         </div>

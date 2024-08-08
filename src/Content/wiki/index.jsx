@@ -10,14 +10,14 @@ const Wiki = () => {
     <div className="page">
       <Header />
         <div className="contentLinks">
-          <Link to="/wiki/agents" className="links">
-            {"agents"}
+          <Link to="/wiki/agents/home" className="links">
+            agents
           </Link>
           <Link to="/wiki/maps" className="links">
-            {"maps"}
+            maps
           </Link>
           <Link to="/wiki/weapons" className="links">
-            {"weapons"}
+            weapons
           </Link>
         </div>
     </div>

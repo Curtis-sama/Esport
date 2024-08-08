@@ -16,6 +16,7 @@
   margin: 20px;
   object-fit: contain;
   overflow: auto;
+  overflow-x: hidden;
   
 }
 

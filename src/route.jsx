@@ -8,6 +8,8 @@ import Agents from "./Content/wiki/agents"
 import Weapons from "./Content/wiki/weapons"
 import Details from "./Content/wiki/agents/details"
 import DetailsWeapons from "./Content/wiki/weapons/detailsweapons"
+import HomeAgents from "./Content/wiki/agents/home"
+
 
 
 const getGames = async () => {
@@ -16,10 +18,10 @@ const getGames = async () => {
   return info
 }
 
-  const getMaps = async () => {
-    const response = await fetch('https://valorant-api.com/v1/maps')
-    const { data } = await response.json();
-    return data
+const getMaps = async () => {
+  const response = await fetch('https://valorant-api.com/v1/maps')
+  const { data } = await response.json();
+  return data
 }
 
 const getAgents = async (params) => {
@@ -39,15 +41,15 @@ const getWeapons = async (params) => {
   if (params) {
     const { uuid } = params
     const response = await fetch(`https://valorant-api.com/v1/weapons/${uuid}`)
-    const {data} = await response.json();
+    const { data } = await response.json();
     return data
-  } else { 
+  } else {
     const response = await fetch('https://valorant-api.com/v1/weapons/')
     const { data } = await response.json();
     return data
   }
 }
-  
+
 
 
 const router = createBrowserRouter([
@@ -79,27 +81,51 @@ const router = createBrowserRouter([
   {
     path: "/wiki/agents",
     element: <Agents />,
-    loader: () => {
+    loader: async () => {
       return getAgents()
-    }
+    },
+    children: [
+      {
+        path: "home",
+        element: <HomeAgents />,
+      },
+      {
+        path: ":uuid",
+        element: <Details />,
+      }
+    ]
   },
+  // {
+  //   path: "/wiki/agents",
+  //   element: <Agents />,
+  //   loader: () => {
+  //     return getAgents()
+  //   },
+  //   children: [
+  //     {
+  //       path: "/wiki/agents",
+  //       element: <HomeAgents />
+  //     },
+  //     {
+  //       path: "/wiki/agents/:uuid",
+  //       element: <Details />,
+  //       loader: ({ params }) => {
+  //         return getAgents(params)
+  //       }
+  //     },
+  //   ]
+  // },
+ 
   {
     path: "/wiki/weapons",
     element: <Weapons />,
-    loader:() => {
+    loader: () => {
       return getWeapons()
     }
   },
   {
-    path: "/wiki/agents/:uuid",
-    element: <Details/>,
-    loader: ({ params }) => {
-      return getAgents(params)
-    }
-  },
-  {
     path: "/wiki/weapons/:uuid",
-    element: <DetailsWeapons/>,
+    element: <DetailsWeapons />,
     loader: ({ params }) => {
       return getWeapons(params)
     }

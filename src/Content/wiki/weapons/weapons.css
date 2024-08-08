@@ -7,11 +7,16 @@
   margin: 20px;
   padding: 20px;
   overflow: auto;
+  
 }
 
+.arms:hover {
+  transform: scale(1.1);
+  transition: transform 330ms ease-in-out;
+  }
 
 .img-weapons{
   object-fit: contain;
   overflow: auto;
-  
+
 }

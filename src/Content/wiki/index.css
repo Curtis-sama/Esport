@@ -1,9 +1,11 @@
 .contentLinks {
+  flex: 1;
   display: flex;
+  flex-direction: column;
+  gap: 100px;
   justify-content: space-around;
   margin: 5%;
-
-
+  
 }
 
 .links {
@@ -13,6 +15,8 @@
   border-radius: 5% 20%;
   box-shadow: 10px 5px 5px black;
   padding: 2%;
+  display: flex;
+  justify-content: center;
 }
 
 .links:hover{
@@ -32,13 +36,14 @@
   flex-direction: column;
   border: 1px solid rgb(214, 214, 214);
   height: 100%;
+  width: 150px;
 }
 
 .nav-link{
-  margin: 5%;
+  padding: 3%;
   text-decoration: none;
   color: black;
-  width: 20vh
+  
 }
 
 .nav-link:hover{
