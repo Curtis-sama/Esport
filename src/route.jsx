@@ -24,18 +24,12 @@ const getMaps = async () => {
   return data
 }
 
-const getAgents = async (params) => {
-  if (params) {
-    const { uuid } = params
-    const response = await fetch(`https://valorant-api.com/v1/agents/${uuid}`)
-    const { data } = await response.json();
-    return data
-  } else {
+const getAgents = async () => {
     const response = await fetch('https://valorant-api.com/v1/agents')
     const { data } = await response.json();
     return data
   }
-}
+
 
 const getWeapons = async (params) => {
   if (params) {
@@ -49,6 +43,7 @@ const getWeapons = async (params) => {
     return data
   }
 }
+
 
 
 
@@ -81,7 +76,7 @@ const router = createBrowserRouter([
   {
     path: "/wiki/agents",
     element: <Agents />,
-    loader: async () => {
+    loader: () => {
       return getAgents()
     },
     children: [
@@ -121,15 +116,19 @@ const router = createBrowserRouter([
     element: <Weapons />,
     loader: () => {
       return getWeapons()
-    }
+    },
+    children :[
+      {
+        path: ":uuid",
+        element: <DetailsWeapons />,
+        loader: ({params}) => {
+          return getWeapons(params)
+        },
+      }
+      
+    ]
   },
-  {
-    path: "/wiki/weapons/:uuid",
-    element: <DetailsWeapons />,
-    loader: ({ params }) => {
-      return getWeapons(params)
-    }
-  }
+ 
 ])
 
 export default router

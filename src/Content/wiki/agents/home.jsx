@@ -12,7 +12,7 @@ const CardAgents = ({ agent }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate({ pathname: `${agent.uuid}` });
+    navigate({ pathname: `/wiki/agents/${agent.uuid}` });
   };
 
   return (
@@ -40,8 +40,6 @@ const CardAgents = ({ agent }) => {
 
 const HomeAgents = ({}) => {
   const agents = useOutletContext()
-  
-  console.log('Agents:', agents);
   
 
   return (

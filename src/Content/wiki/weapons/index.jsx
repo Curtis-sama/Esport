@@ -1,7 +1,6 @@
 import Header from "../../../Header"
 import Nav from "../nav"
 import { useLoaderData } from "react-router-dom";
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -11,7 +10,7 @@ const InfoWeapons = ({ weapon }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate({ pathname: `${weapon.uuid}` });
+    navigate({ pathname: `/wiki/weapons/${weapon.uuid}` });
   };
 
   return (
@@ -31,6 +30,8 @@ const InfoWeapons = ({ weapon }) => {
 const Weapons = () => {
   const weapons = useLoaderData()
   console.log(weapons);
+
+
 
   return (
     <>

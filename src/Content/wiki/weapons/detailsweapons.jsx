@@ -4,9 +4,9 @@ import Nav from "../nav";
 
 const DetailsWeapons = () => {
 
-  const weapons = useLoaderData()
+  const weapon = useLoaderData()
 
-  const WeaponsDamage = weapons.weaponStats.damageRanges // TODO: nouveau composant
+  const WeaponsDamage = weapon.weaponStats.damageRanges // TODO: nouveau composant
     .map((damage, index) => {
       const damageStart = damage.rangeStartMeters
       const damageEnd = damage.rangeEndMeters
@@ -23,7 +23,7 @@ const DetailsWeapons = () => {
       )
     })
 
-  const weaponSkin = weapons.skins // TODO: nouveau composant
+  const weaponSkin = weapon.skins // TODO: nouveau composant
     .filter(({ contentTierUuid, displayIcon }) => contentTierUuid && displayIcon) // Filtre les erreurs dans l'API 
     .map((skin, index) => {
       const {
@@ -49,7 +49,7 @@ const DetailsWeapons = () => {
         <div className="details-page">
           <div className="details-skin">
             <div className="weapons-name">
-              {weapons.displayName}
+              {weapon.displayName}
             </div>
             <div className="skin">
               {weaponSkin}
@@ -58,7 +58,7 @@ const DetailsWeapons = () => {
         </div>
       </div>
       <div className="info-weapons">
-        <img className="image-weapon" src={weapons.displayIcon} />
+        <img className="image-weapon" src={weapon.displayIcon} />
         <div className="stats">
           {WeaponsDamage}
         </div>

@@ -1,12 +1,16 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useOutletContext, useParams } from "react-router-dom";
 
 
 
 const Details = () => {
-  const agent = useLoaderData()
+  const allAgents = useOutletContext()
+  const { uuid } = useParams();
+  const agent = allAgents.find((agent) => agent.uuid === uuid)
+  console.log(agent);
+
   const { bustPortrait } = agent;
 
-  const abi = agent.abilities.map((abilitie, index) => {
+  const abi = agent.abilities.map((abilitie, index) => { // créer un composant appart
     const {
       displayName,
       description,
