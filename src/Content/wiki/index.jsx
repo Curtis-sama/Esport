@@ -1,5 +1,4 @@
 import Header from "../../Header";
-import { useLoaderData } from "react-router-dom"
 import { Link } from "react-router-dom";
 
 
@@ -14,10 +13,10 @@ const Wiki = () => {
             agents
           </Link>
           <Link to="/wiki/maps" className="links">
-            maps
+            cartes
           </Link>
           <Link to="/wiki/weapons/home" className="links">
-            weapons
+            armes
           </Link>
         </div>
     </div>

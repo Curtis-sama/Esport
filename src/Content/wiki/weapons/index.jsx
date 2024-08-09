@@ -9,9 +9,6 @@ import { Outlet, useLoaderData } from "react-router-dom";
 
 const Weapons = () => {
   const weapons = useLoaderData()
-  console.log(weapons);
-
-
 
   return (
     <>

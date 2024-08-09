@@ -62,8 +62,7 @@ const DetailsWeapons = () => {
         <img className="image-weapon" src={weapon.displayIcon} />
         <div className="stats">
           {
-            weapon.weaponStats.damageRanges
-              .map((damage, index) => {
+            weapon.weaponStats?.damageRanges.map((damage, index) => {
                 return <WeaponsDamage key={index} damage={damage} />
               }
               )}

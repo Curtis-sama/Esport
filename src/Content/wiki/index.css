@@ -43,7 +43,9 @@
   padding: 3%;
   text-decoration: none;
   color: black;
-  
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: Marker Felt, fantasy;
 }
 
 .nav-link:hover{
@@ -67,4 +69,14 @@
   overflow: auto;
   display: flex;
   justify-content: center;
+}
+
+.texte{
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.texte:hover{
+  background-color: rgb(185, 185, 185);
 }
