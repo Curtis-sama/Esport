@@ -9,6 +9,7 @@ import Weapons from "./Content/wiki/weapons"
 import Details from "./Content/wiki/agents/details"
 import DetailsWeapons from "./Content/wiki/weapons/detailsweapons"
 import HomeAgents from "./Content/wiki/agents/home"
+import HomeWeapons from "./Content/wiki/weapons/home"
 
 
 
@@ -90,27 +91,6 @@ const router = createBrowserRouter([
       }
     ]
   },
-  // {
-  //   path: "/wiki/agents",
-  //   element: <Agents />,
-  //   loader: () => {
-  //     return getAgents()
-  //   },
-  //   children: [
-  //     {
-  //       path: "/wiki/agents",
-  //       element: <HomeAgents />
-  //     },
-  //     {
-  //       path: "/wiki/agents/:uuid",
-  //       element: <Details />,
-  //       loader: ({ params }) => {
-  //         return getAgents(params)
-  //       }
-  //     },
-  //   ]
-  // },
- 
   {
     path: "/wiki/weapons",
     element: <Weapons />,
@@ -119,11 +99,12 @@ const router = createBrowserRouter([
     },
     children :[
       {
+        path: "home",
+        element: <HomeWeapons />,
+      },
+      {
         path: ":uuid",
         element: <DetailsWeapons />,
-        loader: ({params}) => {
-          return getWeapons(params)
-        },
       }
       
     ]

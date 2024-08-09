@@ -10,7 +10,7 @@ const Nav = () => {
       <Link to="/wiki/maps" className="nav-link">
         maps
       </Link>
-      <Link to="/wiki/weapons" className="nav-link">
+      <Link to="/wiki/weapons/home" className="nav-link">
         weapons
       </Link>
     </div>

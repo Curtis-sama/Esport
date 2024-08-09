@@ -1,34 +1,35 @@
-import { useLoaderData, useOutletContext, useParams } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 
+const AgentAbilities = ({ ability }) => {
+  if (!ability) {
+    return
+  }
 
+  const {
+    displayName,
+    description,
+    displayIcon
+  } = ability
+
+  return (
+    <div className="content-abilities">
+      <div className="name-img-abilities">
+        {displayName}
+        <img className="abilities-img" src={displayIcon} />
+      </div>
+      <div className="description-abilities">
+        {description}
+      </div>
+    </div>
+  )
+}
 
 const Details = () => {
   const allAgents = useOutletContext()
   const { uuid } = useParams();
   const agent = allAgents.find((agent) => agent.uuid === uuid)
-  console.log(agent);
 
   const { bustPortrait } = agent;
-
-  const abi = agent.abilities.map((abilitie, index) => { // créer un composant appart
-    const {
-      displayName,
-      description,
-      displayIcon
-    } = abilitie
-
-    return (
-      <div className="content-abilities" key={index}>
-        <div className="name-img-abilities">
-          {displayName}
-          <img className="abilities-img" src={displayIcon} />
-        </div>
-        <div className="description-abilities">
-          {description}
-        </div>
-      </div>
-    )
-  })
 
   return (
     <div className="details">
@@ -41,7 +42,13 @@ const Details = () => {
             {agent.description}
           </div>
           <div className="abilities">
-            {abi}
+            {
+              agent.abilities.map((ability, index) => {
+                return <AgentAbilities key={index} ability={ability} />
+              }
+            )
+            }
+            <AgentAbilities agent={agent} />
           </div>
         </div>
       </div>

@@ -16,7 +16,7 @@ const Wiki = () => {
           <Link to="/wiki/maps" className="links">
             maps
           </Link>
-          <Link to="/wiki/weapons" className="links">
+          <Link to="/wiki/weapons/home" className="links">
             weapons
           </Link>
         </div>
