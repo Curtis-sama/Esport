@@ -1,72 +1,76 @@
-import { useLoaderData } from "react-router-dom"
-import Header from "../../../Header";
-import Nav from "../nav";
+import { useLoaderData, useOutletContext, useParams } from "react-router-dom"
+
+
+const WeaponsDamage = ({ damage }) => {
+
+  const damageStart = damage.rangeStartMeters
+  const damageEnd = damage.rangeEndMeters
+  const { bodyDamage, headDamage, legDamage } = damage
+
+  return (
+    <div className="damage-stat" >
+      <div className="distance-damage">distance: {damageStart}/{damageEnd}m</div>
+      <div>dégâts tête: {headDamage}</div>
+      <div> dégâts corps: {bodyDamage}</div>
+      <div>dégâts jambes: {legDamage}</div>
+    </div>
+  )
+}
+
+
+const WeaponSkin = ({ skin }) => {
+
+  const {
+    displayName,
+    displayIcon
+  } = skin
+
+  return (
+    <div className="name-img-skins">
+      {displayName}
+      <img className="skins-img" src={displayIcon} />
+    </div>
+    // TODO: nouveau composant
+  )
+}
+
 
 const DetailsWeapons = () => {
 
-  const weapon = useLoaderData()
-
-  const WeaponsDamage = weapon.weaponStats.damageRanges // TODO: nouveau composant
-    .map((damage, index) => {
-      const damageStart = damage.rangeStartMeters
-      const damageEnd = damage.rangeEndMeters
-      const { bodyDamage, headDamage, legDamage } = damage
-      
-
-      return (
-        <div className="damage-stat" key={index}>
-          <div className="distance-damage">distance: {damageStart}/{damageEnd}m</div>
-          <div>dégâts tête: {headDamage}</div>
-          <div> dégâts corps: {bodyDamage}</div>
-          <div>dégâts jambes: {legDamage}</div>
-        </div>
-      )
-    })
-
-  const weaponSkin = weapon.skins // TODO: nouveau composant
-    .filter(({ contentTierUuid, displayIcon }) => contentTierUuid && displayIcon) // Filtre les erreurs dans l'API 
-    .map((skin, index) => {
-      const {
-        displayName,
-        displayIcon
-      } = skin
-
-      return (
-        <div key={index}>
-          <div className="name-img-skins">
-            {displayName}
-            <img className="skins-img" src={displayIcon} />
-          </div>
-        </div>
-      )
-    })
+  const allWeapons = useOutletContext()
+  const { uuid } = useParams()
+  const weapon = allWeapons.find((weapon) => weapon.uuid === uuid)
 
   return (
     <>
-      <Header />
-      <div className="container">
-        <Nav />
-        <div className="details-page">
-          <div className="details-skin">
-            <div className="weapons-name">
-              {weapon.displayName}
-            </div>
-            <div className="skin">
-              {weaponSkin}
-            </div>
+      <div className="details-page">
+        <div className="details-skin">
+          <div className="weapons-name">
+            {weapon.displayName}
+          </div>
+          <div className="skin">
+            {weapon.skins
+              .filter(({ contentTierUuid, displayIcon }) => contentTierUuid && displayIcon) // Filtre les erreurs dans l'API 
+              .map((skin, index) => {
+                return <WeaponSkin key={index} skin={skin} />
+              })
+            }
           </div>
         </div>
       </div>
       <div className="info-weapons">
         <img className="image-weapon" src={weapon.displayIcon} />
         <div className="stats">
-          {WeaponsDamage}
+          {
+            weapon.weaponStats.damageRanges
+              .map((damage, index) => {
+                return <WeaponsDamage key={index} damage={damage} />
+              }
+              )}
         </div>
       </div>
     </>
-
   )
-
 }
 
 

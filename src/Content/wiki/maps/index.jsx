@@ -37,7 +37,7 @@ const Maps = () => {
     <>
       <Header />
       <div className="container">
-        <Nav />
+        <Nav maps={maps}/>
         <div className="infos">
           {maps
             .filter(({ displayIcon }) => displayIcon) // Filtre les erreurs dans l'API 
